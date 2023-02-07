@@ -1,0 +1,50 @@
+Communication Protocol Documentation
+
+Document Header Information
+  Creation Date: February 2, 2023
+  Created By: pythoner
+  Document Status; Draft
+
+  Current Version: 1.0
+  Revision Date: 02/02/2023
+  Revised By: pythoner
+  Reason for Editing: Creation of Document
+
+  Version History
+   1 Creation      February 2, 2023
+   2 Edit
+
+Brief instructions on the process of Revision
+1. This document when initially created should still be considered as draft and shall be changed to Published when the project is finally announced as finished and uploaded in the github repository.
+2. Whenever an upgrade is done on the published software, it is necessary that this document must be updated as well if there are changes on the covered topic in this document. Revision must be done in high priority mode.
+
+About this Document
+This document describes how the Communication Protocol was implmented in this project.
+
+List of Message Formats in this Project
+
+The communication protocol has 5 layers which are as follows:
+    Layer 1 - Receiver Type
+    Layer 2 - Sender
+    Layer 3 - Recipient
+    Layer 4 - Message
+
+Message a Friend:
+FRIEND:User:Friend's User:Message
+Example:
+John is the user and wants to say hi to his friend Josh:
+FRIEND:john:josh:hi
+
+Message a Room:
+ROOM:User:Room Name:Message
+Example:
+John wants to message members of the room Meeting:
+ROOM:john:meeting:hello
+
+Other Scenarios that does not use the Porotcol:
+1. Hand Shake:
+   User enters his login creential and login, the server authinticates the user and sends 'USER'. The client application should reply automaticlally by sending the user name or alias. Then the server sends a message to the user's friends and members of the room he joined with the folloqing format: JOIN:User Name: Message. 
+
+2. User Has Left the chat or went offline
+   The server will send a message with the following format: ALERT:User who Left:Message
+ 

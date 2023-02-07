@@ -1,0 +1,35 @@
+Plans for 02/03/2023:
+     1. The planner file has been added to track my activities
+     2. server app has minor revision(I added the connections feature)
+     3. client app has been revised to get the friend and room list from mysql server and connect to the server
+     4. Planning to add data entry screen for this planner file
+     5. Need another revision of this IDE. Planned revisions:
+        1. I have observed that the whole program(including this IDE) crashes whenever the called screens encounter critical error
+        2. To avoid this error, I will redesign this IDE in such a way to trap errors from the called screen and display it on the error pane.
+        3. My initial solution: To be checked further but has created a prototype and it work to test my hypothesis.         
+
+Plans for 02/04/2023:
+     1. make sure that at least, users are able to login and communicate with other users
+     2. Continue updating the Protocol Documentation
+     3. Update if necessary the readme file
+     4. Do more planning
+     5. From yesterday's 5th item or task, I have solved the problem by using OS to execute DOS commands in different threads so from there I can trap the error encountered and display into the error pane and the IDE will not crash. I am not sure though if this solution is the best practice, need to confirm this by researching but for now, I am happy with this solution. 
+     6. Revised the readme file to ommit the description about creating a class that inherits the QSubWindow because I was able to simplify the solution to the issue.
+     7. Revised the readme file again to describe how this IDE is evolving to include a Content Management system.
+
+Plans for 02/05/2023:
+     1. Continue working on the task started in 02/04/2023
+     2. Continue updating the Protocol Documentation
+     3. Update if necessary the readme file
+     4. Do more planning
+     5. It is very inconvenient to use this IDE without the intelligent auto indentation at least, I really must do something to implement this.
+        Plans how to implement Intelligent Auto Indentation:
+          1. The program must be able to identify python commands
+          2. If it recognized for and and the end is ":", when the user press the enter key, the cursor should copy the leadin spaces of the previous line and add 4 spaces and when the next line is for example just used print command, the next line should just copy the number of trailing spaces of the previous line.
+          3. I am thinking whether to use Machine Learning or just store those commands in a local database but would not an ideal solution, I am definitely considereng ML as the top contender as a solution.
+
+Plans for 02/06/2023:
+    1. The solution I have implemented from 5th items or task in 02/04/2023 no longer works. My suspect is that either a very intelligent burglar came in and modified certain system environment variables of python that prevents my solution from working or it could be that Windows Defender recognized the operation of my solution as something that a virus is programmed to perform that will be confirm by researching. I think the latter is most likely the culprit because yes it seem that it really looks a virus because my solution is capturing the errors from another application. Windows Defender could have considered the activity evesdropping or beaconing. 
+
+Plans for 02/07/2023:
+   1. I did a little research about yesterday's task and no topic found about this scenario and it seems that Windows defender blocks a whole application not certain functions of an application and still not contented with this, another idea came to my mind that in order to prove that Windows Defender has nothing to do with this is by disabling it and run the program again and thats what I just did and nothing different was found. There moght be a variable inside python that weas changed by this very intelligent burglar. At least the whole application no longer crash whenever the called application by the IDE crashes, but the error is no longer being captured and displayed on the error pane, but the error is getting displayed on the dos terminal.
