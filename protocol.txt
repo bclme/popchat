@@ -5,14 +5,14 @@ Document Header Information
   Created By: pythoner
   Document Status; Draft
 
-  Current Version: 1.0
-  Revision Date: 02/02/2023
+  Current Version: 2.0
+  Revision Date: 02/28/2023
   Revised By: pythoner
-  Reason for Editing: Creation of Document
+  Reason for Editing: New Prrotocol Layer, Added new Message Format and Revision of Handshake Process
 
   Version History
-   1 Creation      February 2, 2023
-   2 Edit
+   1 Creation      February  2, 2023    Creation of Document
+   2 Edit          February 28, 2023    New Prrotocol Layer, Added new Message Format and Revision of Handshake Process
 
 Brief instructions on the process of Revision
 1. This document when initially created should still be considered as draft and shall be changed to Published when the project is finally announced as finished and uploaded in the github repository.
@@ -28,23 +28,41 @@ The communication protocol has 5 layers which are as follows:
     Layer 2 - Sender
     Layer 3 - Recipient
     Layer 4 - Message
+    Layer 5 - Message ID(New V2)
 
 Message a Friend:
 FRIEND:User:Friend's User:Message
 Example:
 John is the user and wants to say hi to his friend Josh:
 FRIEND:john:josh:hi
+Server will then send this message to the receiver:(New V2)
+FRIEND:User:Friend's User:Message:Message ID       (New V2)
 
 Message a Room:
 ROOM:User:Room Name:Message
 Example:
 John wants to message members of the room Meeting:
 ROOM:john:meeting:hello
+Server will then send this message to the receiver:(New V2)
+ROOM:User:Friend's User:Message:Message ID       (New V2)
 
 Other Scenarios that does not use the Porotcol:
 1. Hand Shake:
-   User enters his login creential and login, the server authinticates the user and sends 'USER'. The client application should reply automaticlally by sending the user name or alias. Then the server sends a message to the user's friends and members of the room he joined with the folloqing format: JOIN:User Name: Message. 
-
+--Removed-- 03/02/2023    
+   User enters his login creential and login, the server authinticates the user and sends 'USER'. The client application should reply automatically by sending the user name or alias. Then the server sends a message to the user's friends and members of the room he joined with the following format: JOIN:User Name: Message. 
+--End Removed03/02/2023
+--New V2--
+    - User enters his login credential and login(first, the app sends the username)
+    - once received by the server, it will send 'OK' signaling the client app to send the encrypted password
+    - the client app encrypt the password with RSA and send the password
+    - the server decrypt the password and re encrypt it with sha256
+    - the server authinticates the user by matching the credentials to mysql database 
+    - if user is found, it sends the 'OKUSER' signalling that the user has beeen autenticated
+    - if the search was not successful, the server will send 'NOUSER'
+    - once the client receives the message, 
+    - if it was successful, it will close the login screen and user can now use the app, while the server sends a message to the user's friends and members of the room he joined with the following format: JOIN:User Name: Message
+    - if the search was unsuccessful, it will notify the user that he entered an invalid credentials. And the whole process will again start. 
+--End New V2--    
 2. User Has Left the chat or went offline
    The server will send a message with the following format: ALERT:User who Left:Message
  
